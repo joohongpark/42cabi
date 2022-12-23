@@ -4,24 +4,6 @@ on: [push]
 jobs:
   backend-CI:
     runs-on: ubuntu-latest
-    env:
-      HOST: localhost
-      DB_USER: test_user
-      DB_PORT: 3306
-      DATABASE: test_db
-      DB_PASSWORD: test_password
-      ROOT_PASSWORD: test_password
-      FORTYTWO_APP_ID: 1234
-      FORTYTWO_APP_SECRET: 1234
-      CALLBACK_URL: /auth/login/callback
-      COOKIE_KEY: secret
-      JWT_SECRETKEY: SecretKey
-      JWT_ALGORITHM: HS256
-      JWT_EXPIREIN: 28d
-      JWT_ISSUER: 42cabi
-      MAIL_SEND: false
-      DEBUG_LOG: true
-
     services:
       mariadb:
         image: mariadb
@@ -31,6 +13,8 @@ jobs:
           MARIADB_USER: test_user
           MARIADB_PASSWORD: test_password
           MARIADB_ROOT_PASSWORD: test_password
+        ports:
+          - 3306:3306
         # options: >-
         #   --health-cmd pg_isready
         #   --health-interval 10s
@@ -61,7 +45,7 @@ jobs:
       #   run: npm run test --prefix backend
       - name: 통합 테스트 체크
         env:
-          HOST: mariadb
+          HOST: localhost
           DB_USER: test_user
           DB_PORT: 3306
           DATABASE: test_db

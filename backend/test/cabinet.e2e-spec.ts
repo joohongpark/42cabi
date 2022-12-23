@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
 import { AppModule } from 'src/app.module';
 
-describe('Cabinet E2E Test', () => {
+describe.skip('Cabinet E2E Test', () => {
   let app: INestApplication;
   let cookie: string[];
 

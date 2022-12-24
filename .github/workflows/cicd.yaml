@@ -32,7 +32,7 @@ jobs:
           DATABASE_NAME: test_db
           DATABASE_USERNAME: test_user
           DATABASE_PASSWORD: test_password
-          DATABASE_SCRIPT: ${{ github.workspace }}/backend/database/42cabi_v3_test.sql
+          DATABASE_SCRIPT: backend/database/42cabi_v3_test.sql
       - name: Node.js 16.x Version
         uses: actions/setup-node@v1
         with:

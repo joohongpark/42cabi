@@ -15,6 +15,8 @@ jobs:
           MARIADB_ROOT_PASSWORD: test_password
         ports:
           - 3306:3306
+        volumes:
+          - backend/database:/docker-entrypoint-initdb.d/
         # options: >-
         #   --health-cmd pg_isready
         #   --health-interval 10s

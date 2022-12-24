@@ -25,7 +25,7 @@ jobs:
       - name: 체크아웃
         uses: actions/checkout@v2
       - name: DB에 샘플 데이터 삽입
-        run: mysql -u test_user
+        run: mysql --force --host="localhost" --port="3306" --database="test_db" --user="test_user" --password="test_password"  < "backend/database/42cabi_v3_test.sql"
       - name: Node.js 16.x Version
         uses: actions/setup-node@v1
         with:

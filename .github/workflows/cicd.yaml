@@ -25,14 +25,7 @@ jobs:
       - name: 체크아웃
         uses: actions/checkout@v2
       - name: DB에 샘플 데이터 삽입
-        uses: calxus/mysql-deploy-action@v2
-        with:
-          DATABASE_HOST: localhost
-          DATABASE_PORT: 3306
-          DATABASE_NAME: test_db
-          DATABASE_USERNAME: test_user
-          DATABASE_PASSWORD: test_password
-          DATABASE_SCRIPT: backend/database/42cabi_v3_test.sql
+        run: mysql -u test_user
       - name: Node.js 16.x Version
         uses: actions/setup-node@v1
         with:

@@ -16,7 +16,7 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd healthcheck.sh
+          --health-cmd "/usr/local/bin/healthcheck.sh"
 
     steps:
       - name: 체크아웃

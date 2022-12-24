@@ -16,7 +16,7 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd "/usr/local/bin/healthcheck.sh"
+          --health-cmd "mysqladmin ping -P 3306 -p123 | grep 'mysqld is alive' || exit 1"
 
     steps:
       - name: 체크아웃
